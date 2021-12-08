@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="3.38.32.36" id="0bb4b45d-a849-4a41-9395-6c0ed3ca7a64" keyPath="C:\Users\rnlgksclsrn\OneDrive - 한국항공대학교\바탕 화면\Project\3. UMC\Instance1.pem" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" />
+    </configs>
+  </component>
+</project>

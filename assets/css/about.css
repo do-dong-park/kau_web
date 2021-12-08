@@ -1,0 +1,31 @@
+html {
+    height: 100%;
+}
+
+.Info_box {
+    max-width: 80%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-around;
+    border: black 3px solid;
+}
+
+/*메뉴 박스 내 의 배치 지정*/
+.Info_text {
+    list-style: none;
+}
+
+.Info_text li {
+    font-size: 24px;
+    margin : 0px 20px;
+    padding: 4px 18px;
+}
+
+#Info_title {
+    font-size: 48px;
+    margin : 25px
+}
+
+.Info_map{
+    float: right;
+}

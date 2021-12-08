@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="12821049-cba0-4d80-b501-11870789aedc" name="EC2" url="http://dongdong-24.shop">
+        <fileTransfer rootFolder="/var/www/html" accessType="SFTP" host="3.38.32.36" port="22" sshConfigId="0bb4b45d-a849-4a41-9395-6c0ed3ca7a64" sshConfig="ubuntu@3.38.32.36:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
