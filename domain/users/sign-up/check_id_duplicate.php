@@ -5,35 +5,28 @@ $conn = mysqli_connect("dongdong-db.ctrzurlhmfdw.ap-northeast-2.rds.amazonaws.co
 mysqli_select_db($conn, 'kau_web_project');
 $result = mysqli_query($conn, 'SELECT * FROM kau_web_project.User');
 
-$userid = $_GET['userid'];
+$userid = $_POST['id'];
+$id_duplic = false;
 
+if($userid == '') {
+    echo "id를 입력해주세요.";
+    return 0;
+}
+
+// 중복값이 있으면, while문 탈출.
 while ($row = mysqli_fetch_assoc($result)) {
 
     if ($row['id'] == $userid) {
+
         $id_duplic = true;
-        break;
-
-    } else {
-        $id_duplic = false;
+        echo "$userid 는 이미 존재하는 아이디입니다.";
+        return 0;
     }
-
 }
 
-if ($id_duplic == true) {
-
-?>
-
-<div style='font-family:"malgun gothic"; color:red;'><?php echo $userid; ?>은(는) 중복된 아이디입니다.
-
-
-    <?php
-
-    } else {
-
-        ?>
-        <div style='font-family:"malgun gothic"' ;><?php echo $userid; ?>은(는) 사용가능한 아이디입니다.</div>
-        <?php
-    } ?>
+if($id_duplic == false) {
+    echo "$userid 는 사용 가능한 아이디입니다.";
+    return 1;
+}
 
 
-    <button value="닫기" onclick="window.close()">닫기</button>

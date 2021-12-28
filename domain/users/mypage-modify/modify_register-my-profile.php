@@ -39,54 +39,22 @@ $conn = mysqli_connect("dongdong-db.ctrzurlhmfdw.ap-northeast-2.rds.amazonaws.co
 mysqli_select_db($conn, 'kau_web_project');
 
 $id = $_POST['id'];
-$pw_origin_correct = $_POST['origin_pw'];
-$pw_origin = $_POST['current-pw'];
 $pw = $_POST['new-pw'];
-$pw2 = $_POST['new-pw-conf'];
-$name = $_POST['name'];
 $nickname = $_POST['nickname'];
 $email = $_POST['email'];
+
+echo  '<script> post_to_url("https://dongdong-24.shop/domain/users/mypage/check-my-profile.php", {id: my_id}); alert("정보 수정을 완료했습니다."); </script>';
+$query = mysqli_query($conn, "UPDATE kau_web_project.User SET pw= '$pw', nickname='$nickname', email='$email' WHERE id = '$id' ");
+
+if($query) { //세션닫기에 성공하면
+    ?>
+    <script>
+        alert("회원정보가 수정되었습니다.");
+        location.replace("https://dongdong-24.shop/domain/users/mypage/check-my-profile.php")//다시 처음 페이지로 돌아간다
+    </script>
+<?php   }
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
-
-
-<?php
-
-//회원가입 조건 충족 못하면,
-if ($id == "" || $pw_origin == "" || $pw == "" || $pw2 == "" || $name == "" || $nickname == "" || $email == "") {
-    echo '<script> alert("수정 정보를 모두 입력해주세요"); history.back(); </script>';
-    return;
-}else if ($pw_origin_correct != $pw_origin) {
-    echo '<script> alert("현재 비밀번호가 일치하지 않습니다."); history.back(); </script>';
-    return;
-} else if ($pw != $pw2) {
-    echo '<script> alert("신규 비밀번호와 재입력 비밀번호가 같지 않습니다."); history.back(); </script>';
-    return;
-} else if ($pw_origin != $pw) {
-    echo '<script> alert("현재 비밀번호와 신규 비밀번호가 동일합니다."); history.back(); </script>';
-    return;
-} else {
-    echo  '<script> post_to_url("http://192.168.56.1/front_end/html/login/check-my-profile.php", {id: my_id}); alert("정보 수정을 완료했습니다."); </script>';
-
-    $query = mysqli_query($conn, "UPDATE kau_web_project.User SET pw= '$pw', name='$name',  nickname='$nickname', email='$email' WHERE id = '$id' ");
-
-    return;
-}
-
-?>
 
 
 

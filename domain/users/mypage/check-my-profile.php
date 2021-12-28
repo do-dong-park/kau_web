@@ -6,18 +6,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>회원 정보 조회</title>
-    <?php
-    include $_SERVER['DOCUMENT_ROOT']."/KAU/base/bootstrap&icon&font.php"
-    ?>
-    <link rel="stylesheet" href="/KAU/base/nav_bar/my_nav_bar.css">
+    <link rel="apple-touch-icon" href="/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="stylesheet" href="css/check-my-profile.css">
-    <script src="/KAU/base/nav_bar/my-nav-bar-bootstrap.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/templatemo.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+
 </head>
 <body>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/KAU/base/nav_bar/my-navbar-bootstrap.php"
+include $_SERVER['DOCUMENT_ROOT'] . '/base/navbar.php';
 ?>
+
 
 <?php
 //페이지에서 받은 별명으로부터, 회원정보를 추출하여, 표에 값으로 뿌려줌.
@@ -30,7 +37,7 @@ mysqli_select_db($conn, 'kau_web_project');
 session_start();
 $id = $_SESSION['user_id'];
 
-$find_my_info = mysqli_query($conn, "SELECT * FROM kau_web_project.User WHERE id = '".$id."' ");
+$find_my_info = mysqli_query($conn, "SELECT * FROM kau_web_project.User WHERE id = '" . $id . "' ");
 
 $row_my_info = mysqli_fetch_assoc($find_my_info);
 ?>
@@ -43,14 +50,18 @@ $row_my_info = mysqli_fetch_assoc($find_my_info);
         var my_name = "<?php echo $row_my_info['name']; ?>";
         var my_nickname = "<?php echo $row_my_info['nickname']; ?>";
         var my_email = "<?php echo $row_my_info['email']; ?>";
-        var url = "https://dongdong-24.shop/KAU/users/mypage-modify/modify-my-profile.php";
-        var show_my_profile = { id: my_id , pw: my_pw , name: my_name, nickname : my_nickname, email: my_email};
+        var url = "https://dongdong-24.shop/domain/users/mypage-modify/modify-my-profile.php";
+        var show_my_profile = {id: my_id, pw: my_pw, name: my_name, nickname: my_nickname, email: my_email};
     </script>
 
     <div class="check-my-profile-title">
         <h1 class="title">내 회원정보 <span>확인</span></h1>
-        <button class="modify-my-profile-btn btn btn-outline-secondary btn-sm" onclick = post_to_url(url,show_my_profile)>회원 정보 수정</button>
-        <button class="modify-my-profile-btn btn btn-outline-secondary btn-sm" onclick ='location.href = "../mypost/delete_my_post.php"' >회원 탈퇴</button>
+        <button class="modify-my-profile-btn btn btn-outline-secondary btn-sm" onclick=post_to_url(url,show_my_profile)>
+            회원 정보 수정
+        </button>
+        <button class="modify-my-profile-btn btn btn-outline-secondary btn-sm"
+                onclick='location.href = "delete_member.php"'>회원 탈퇴
+        </button>
     </div>
 
     <!--    class : table은 테두리 만들어주는 친구 / striped 줄마다 색 다르게 / table-hover - 마우스 위에 있을 때 반응! -->
@@ -71,16 +82,6 @@ $row_my_info = mysqli_fetch_assoc($find_my_info);
 
         <tbody>
 
-        <tr class="my-info-img" id="profile-image-area">
-            <th scope="row">사진</th>
-            <td>
-
-                <!--기본 이미지가 들어갈 공간-->
-                <img src="../img/유저-기본이미지.png" class="my-profile-image" alt="사진이 없습니다." width="80">
-
-            </td>
-        </tr>
-
         <tr>
             <th scope="row">ID</th>
             <!--            colspan은 다음칸 n 칸이 비어있을 때 숫자 n으로 값을 비우는 역할을 수행한다. -->
@@ -100,7 +101,7 @@ $row_my_info = mysqli_fetch_assoc($find_my_info);
 
         <tr>
             <th scope="row">닉네임</th>
-            <td><?php echo  $row_my_info['nickname']; ?></td>
+            <td><?php echo $row_my_info['nickname']; ?></td>
         </tr>
 
         <tr>
@@ -115,6 +116,9 @@ $row_my_info = mysqli_fetch_assoc($find_my_info);
 
 </section>
 
+<?php
+include  $_SERVER['DOCUMENT_ROOT'] .  '/base/footer.php';
+?>
 </body>
 </html>
 

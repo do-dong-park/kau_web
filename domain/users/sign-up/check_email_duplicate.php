@@ -6,25 +6,25 @@ $conn = mysqli_connect("dongdong-db.ctrzurlhmfdw.ap-northeast-2.rds.amazonaws.co
 mysqli_select_db($conn, 'kau_web_project');
 $result = mysqli_query($conn, 'SELECT * FROM kau_web_project.User');
 
-$usernick = $_POST['nickname'];
+$email = $_POST['email'];
 
-if($usernick == '') {
-    echo "닉네임을 입력해주세요";
+if($email == '') {
+    echo "이메일을 입력해주세요";
     return;
 }
 
 while ($row = mysqli_fetch_assoc($result)) {
 
-    if ($row['nickname'] == $usernick) {
+    if ($row['email'] == $email) {
         $nick_duplic = true;
-        echo "$usernick 은 이미 존재하는 닉네임입니다.";
+        echo "$email 은 이미 존재하는 이메일입니다.";
         break;
 
     }
 }
 
 if ($nick_duplic == false) {
-    echo "$usernick 은 사용 가능한 닉네임입니다.";
+    echo "$email 은 사용 가능한 이메일입니다.";
 }
 
 

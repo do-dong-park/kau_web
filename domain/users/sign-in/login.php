@@ -47,7 +47,7 @@
             </div>
 
             <ul class="another_option">
-                <li><a href="../find-id-pw/find_account.php">아이디 / 비밀번호 찾기</a></li>
+                <li><a href="../find-id-pw/find_account_view.php">아이디 / 비밀번호 찾기</a></li>
                 <li><a href="../sign-up/signup.php">회원가입</a></li>
             </ul>
         </div>

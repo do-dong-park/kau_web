@@ -52,7 +52,7 @@ $decrypted = Decrypt($encrypted, $secret_key, $secret_iv);
 <nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
 
-        <a class="navbar-brand text-success logo h1 align-self-center" href="index.php">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="https://dongdong-24.shop/index.php">
             토성마을
         </a>
 
@@ -64,16 +64,16 @@ $decrypted = Decrypt($encrypted, $secret_key, $secret_iv);
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="https://dongdong-24.shop/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href="https://dongdong-24.shop/about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shop.php">Shop</a>
+                        <a class="nav-link" href="https://dongdong-24.shop/shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="community.php">Community</a>
+                        <a class="nav-link" href="https://dongdong-24.shop/community.php">Community</a>
                     </li>
                 </ul>
             </div>
@@ -101,7 +101,7 @@ $decrypted = Decrypt($encrypted, $secret_key, $secret_iv);
                         <div class="helloUser">' .$user_name. '님 환영합니다.</div>
                         <div class="outAndUpdate">
                      
-                            <a href="#">내 정보</a> |
+                            <a href="/domain/users/mypage/check-my-profile.php">내 정보</a> |
                             <a href="/domain/users/sign-out/logout.php">로그아웃</a>  
                         </div>
                     </div>';

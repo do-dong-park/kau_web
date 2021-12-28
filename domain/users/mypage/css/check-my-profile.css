@@ -26,10 +26,6 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     width: 100%;
-
-
-    /*스크롤을 없애주는 아주 고마운 친구^^*/
-    overflow: hidden;
 }
 
 button {

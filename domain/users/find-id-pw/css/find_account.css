@@ -57,6 +57,11 @@ section .find_account_title {
     text-align: center;
 }
 
+#find_title {
+    color : black;
+    text-decoration: none;
+}
+
 section .find_account_title {
     font-size: calc(var(--font-large)*2);
 }

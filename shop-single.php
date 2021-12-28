@@ -40,9 +40,10 @@ include 'base/navbar.php';
     <?php
     $menu_id = $_GET['id'];
 
-    $sql = mq("select Menu.idx, menuName, menuNameEn, menuDesc, ImgUrl, volume, calorie, caffeine, sugar, protein, fat, na  from Menu left join MenuNutrient MN on Menu.idx = MN.menuIdx where Menu.idx = '".$menu_id."'");
+    $sql = mq("select Menu.idx, menuName, menuNameEn, menuDesc, ImgUrl, volume, calorie, caffeine, sugar, protein, fat, na, MC.categoryIdx  from Menu left join MenuNutrient MN on Menu.idx = MN.menuIdx left join MenuCategory MC on Menu.idx = MC.menuIdx where Menu.idx = '".$menu_id."'");
 
     $menu = $sql->fetch_array();
+    $menu_category = $menu['categoryIdx'];
     $menu_id = $menu['idx'];
     $menu_name = $menu['menuName'];
     $menu_english = $menu['menuNameEn'];
@@ -55,6 +56,17 @@ include 'base/navbar.php';
     $protein = $menu['protein'];
     $fat = $menu['fat'];
     $na = $menu['na'];
+
+    // 메뉴가 푸드 카테고리에 속할 경우, 1. 단위가 g, 2. 카페인이 없다.
+    if($menu_category == 3) {
+        $volUnit = "g";
+        $caffeineList = "";
+        $caffeineUnit = "";
+    } else {
+        $volUnit = "ml";
+        $caffeineList = "<span>카페인 : </span>";
+        $caffeineUnit = "ml";
+    }
     ?>
 
     <!-- Open Content -->
@@ -79,9 +91,9 @@ include 'base/navbar.php';
 
                             <h6>Nutrient:</h6>
                             <ul class="list-unstyled pb-3">
-                                <li>1회 제공량 : <?php echo $volume ?>ml</li>
+                                <li>1회 제공량 : <?php echo $volume ?><?php echo $volUnit ?></li>
                                 <li>칼로리 : <?php echo $calorie ?>kcal</li>
-                                <li>카페인 : <?php echo $caffeine ?>mg</li>
+                                <?php echo $caffeineList.$caffeine.$caffeineUnit ?>
                                 <li>당류 : <?php echo $sugar ?>g</li>
                                 <li>단백질 : <?php echo $protein ?>g</li>
                                 <li>포화지방 : <?php echo $fat ?>g</li>
