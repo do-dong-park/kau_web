@@ -64,16 +64,16 @@ $decrypted = Decrypt($encrypted, $secret_key, $secret_iv);
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://dongdong-24.shop/index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="https://dongdong-24.shop/about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://dongdong-24.shop/shop.php">Shop</a>
+                        <a class="nav-link" href="https://dongdong-24.shop/shop.php">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://dongdong-24.shop/community.php">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://dongdong-24.shop/gallery.php">Gallery</a>
                     </li>
                 </ul>
             </div>

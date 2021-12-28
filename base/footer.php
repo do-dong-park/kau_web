@@ -33,10 +33,10 @@
             <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Site Map</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="index.php">Home</a></li>
                     <li><a class="text-decoration-none" href="about.php">Cafe Info</a></li>
                     <li><a class="text-decoration-none" href="shop.php">Menu</a></li>
                     <li><a class="text-decoration-none" href="community.php">Community</a></li>
+                    <li><a class="text-decoration-none" href="gallery.php">Gallery</a></li>
                 </ul>
             </div>
 
